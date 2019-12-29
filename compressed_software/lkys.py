@@ -54,7 +54,7 @@ def uncompress_file_failure_message():
     解压失败弹出框
     :return:
     '''
-    tkinter.messagebox.askokcancel(title='failed', message='这不是一个压缩文件！')
+    tkinter.messagebox.askokcancel(title='failed', message='这不是zip压缩文件！')
 
 def compress_file():
     '''
