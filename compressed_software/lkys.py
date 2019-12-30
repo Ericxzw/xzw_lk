@@ -108,22 +108,22 @@ def graphical_user_interface():
     :return:
     '''
     # label：ow代表label是放在第几行，column是放在第几列
-    Label(root, text='压缩目录路径：').grid(row=0, column=0)
+    Label(root, text='压缩文件路径：').grid(row=0, column=0)
 
     # entry：获取输入
     Entry(root, textvariable=compress_file_path_name).grid(row=0, column=1)
 
     # 操作按钮
-    Button(root, text='压缩目录选择', command=choose_compress_file).grid(row=0, column=2)
+    Button(root, text='选择压缩文件', command=choose_compress_file).grid(row=0, column=2)
 
     # label标签
-    Label(root, text='解压目录路径：').grid(row=1, column=0)
+    Label(root, text='解压文件路径：').grid(row=1, column=0)
 
     # 获取输入
     Entry(root, textvariable=uncompress_file_path_name).grid(row=1, column=1)
 
     # 操作按钮
-    Button(root, text='解压文件选择', command=choose_uncompress_file).grid(row=1, column=2)
+    Button(root, text='选择解压文件', command=choose_uncompress_file).grid(row=1, column=2)
 
     # label标签
     Label(root, text='解压到：').grid(row=2, column=0)
@@ -132,16 +132,16 @@ def graphical_user_interface():
     Entry(root, textvariable=uncompress_file_terminal_path_name).grid(row=2, column=1)
 
     # 操作按钮
-    Button(root, text='解压路径选择', command=choose_uncompress_dir).grid(row=2, column=2)
+    Button(root, text='选择解压路径', command=choose_uncompress_dir).grid(row=2, column=2)
 
     # 操作按钮
-    Button(root, text='压缩文件', command=compress_file).grid(row=3, column=0)
+    Button(root, text='点击压缩', command=compress_file).grid(row=3, column=0)
 
     # 操作按钮
-    Button(root, text='解压文件', command=upcompress_file).grid(row=3, column=2)
+    Button(root, text='点击解压', command=upcompress_file).grid(row=3, column=2)
 
     # 操作按钮
-    Button(root, text='退出程序', command=root.quit).grid(row=4, column=1)
+    Button(root, text='退出', command=root.quit).grid(row=4, column=1)
 
     # 显示操作界面
     root.mainloop()
