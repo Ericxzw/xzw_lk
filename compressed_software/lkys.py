@@ -11,6 +11,18 @@ import os
 import tkinter.filedialog
 import base64
 from compressed_software.icon import img
+from PIL import Image, ImageTk
+
+def get_image(imagename, width, height):
+    '''
+    打开指定的图片文件，缩放至指定尺寸
+    :param imagename: 图片名称
+    :param width: 图片尺寸——宽
+    :param height: 图片尺寸——高
+    :return: 返回得到的图片
+    '''
+    image = Image.open(imagename).resize((width, height))
+    return ImageTk.PhotoImage(image)
 
 def choose_compress_file():
     '''
@@ -107,7 +119,7 @@ def graphical_user_interface():
     图形用户界面
     :return:
     '''
-    # label：ow代表label是放在第几行，column是放在第几列
+    # label：row代表label是放在第几行，column是放在第几列
     Label(root, text='压缩文件路径：').grid(row=0, column=0)
 
     # entry：获取输入
@@ -159,11 +171,21 @@ if __name__ == '__main__':
 
     # 初始化，并设置文件名称
     root = Tk(className='轻压-极简版')
+
+    # 设置root大小不变
+    root.resizable(width=False, height=False)
+
     # 设置标题，与root = Tk(className='轻压-极简版')有异曲同工之妙
     # root.title('轻压')
 
     # 设置压缩屏幕大小
-    # root.geometry('1000x150')
+    root.geometry('800x600')
+
+    # # 创建画布，设置要显示的图片，把画布添加至应用程序窗口
+    # canvas = tkinter.Canvas(root)
+    # im_root = get_image('favicon.ico', 800, 600)
+    # canvas.create_image(800, 600, image=im_root)
+    # canvas.pack()
 
     # 读取base64转码后的数据，并设置压缩图标
     picture = open("picture.ico", "wb+")
