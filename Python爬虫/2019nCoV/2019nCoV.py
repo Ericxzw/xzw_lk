@@ -95,9 +95,9 @@ def plot_distribution_graph(province_positions):
     data = get_area_distribution_data(area_distribution_data_url)  # 获取各区域确诊分布数据
 
     # 相关参数设置
-    # width, height, rect, lat_min, lat_max, lon_min, lon_max = 1600, 800, [0.1, 0.12, 0.8, 0.8], 0, 60, 77, 140
+    width, height, rect, lat_min, lat_max, lon_min, lon_max = 1600, 800, [0.1, 0.12, 0.8, 0.8], 0, 60, 77, 140
     # 全局经纬投影替换为如下设置
-    width, height, rect, lat_min, lat_max, lon_min, lon_max = 3000, 1500, [0, 0, 1, 1], -90, 90, 0, 360
+    # width, height, rect, lat_min, lat_max, lon_min, lon_max = 3000, 1500, [0, 0, 1, 1], -90, 90, 0, 360
 
     # 匹配图例颜色
     handles = [
@@ -115,8 +115,8 @@ def plot_distribution_graph(province_positions):
     axes = fig.add_axes(rect)
 
     # 局部兰博托投影
-    # m = Basemap(projection='lcc', llcrnrlon=77, llcrnrlat=14, urcrnrlon=140, urcrnrlat=51, lat_1=33, lat_2=45,
-    #             lon_0=100, ax=axes)
+    m = Basemap(projection='lcc', llcrnrlon=77, llcrnrlat=14, urcrnrlon=140, urcrnrlat=51, lat_1=33, lat_2=45,
+                lon_0=100, ax=axes)
 
     # 全局兰博托投影
     # m = Basemap(projection='lcc', llcrnrlon=80, llcrnrlat=0, urcrnrlon=140, urcrnrlat=51, lat_1=33, lat_2=45,
@@ -129,8 +129,8 @@ def plot_distribution_graph(province_positions):
     # m = Basemap(projection='ortho', lat_0=36, lon_0=102, resolution='l', ax=axes)
 
     # 经纬投影
-    m = Basemap(llcrnrlon=lon_min, urcrnrlon=lon_max, llcrnrlat=lat_min, urcrnrlat=lat_max, resolution='l', ax=axes)
-    m.etopo()
+    # m = Basemap(llcrnrlon=lon_min, urcrnrlon=lon_max, llcrnrlat=lat_min, urcrnrlat=lat_max, resolution='l', ax=axes)
+    # m.etopo()
 
     # 读取shape文件，shape文件主要的作用是：画海陆分界线、国界线、行政分界线。
     m.readshapefile('files/shapefiles/china', 'province', drawbounds=True)
