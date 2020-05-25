@@ -1,8 +1,5 @@
 '''
-1、argparse是Python内置的一个用于命令项选项与参数解析的模块，
-通过在程序中定义好我们需要的参数，argparse将会从sys.argv中解析出这些参数，
-并自动生成帮助和使用信息。当然，Python 也有第三方的库可用于命令行解析，
-而且功能也更加强大，比如 docopt，Click。
+切分长图，将切分后的图片组成动图
 '''
 import argparse
 from PIL import Image
